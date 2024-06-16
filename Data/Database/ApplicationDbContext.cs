@@ -1,11 +1,8 @@
 ﻿
 using Data.Common;
 using Data.Database.Entities;
-using Data.Interficies;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using System.Reflection.Emit;
 
 namespace Data.Database
 {

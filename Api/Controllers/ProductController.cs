@@ -30,14 +30,14 @@ namespace Api.Controllers
         [HttpPost]
         public async Task<ActionResult<ProductDto>> CreateProduct([FromBody] ProductCommand productInsert)
         {
-            var finalProduct = await _productService.AddOrUpdatedAsync(productInsert);
+            var finalProduct = await _productService.AddOrUpdateAsync(productInsert);
             return Ok(finalProduct);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProduct(Guid id, [FromBody] ProductCommand productUpdate)
         {
-            var finalProduct = await _productService.AddOrUpdatedAsync(productUpdate, id);
+            var finalProduct = await _productService.AddOrUpdateAsync(productUpdate, id);
             return Ok(finalProduct);
         }
 

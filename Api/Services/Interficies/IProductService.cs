@@ -8,7 +8,7 @@ namespace Api.Services.Interficies
 {
     public interface IProductService 
     {
-        public Task<ProductDto> AddOrUpdatedAsync(ProductCommand command, Guid? id = null);
+        public Task<ProductDto> AddOrUpdateAsync(ProductCommand command, Guid? id = null);
         public Task<PaginatedList<ProductDto>> GetFilteredProductsAsync(ProductQuery productQuery);
         public Task<ProductDto> DeleteAsync(Guid id);
     }

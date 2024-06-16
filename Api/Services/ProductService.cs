@@ -55,7 +55,7 @@ namespace Api.Services
 
             if (!string.IsNullOrEmpty(query.Description))
             {
-                products = products.Where(p => p.Description.Contains(query.Description));
+                products = products.Where(p => p.Description.ToLower().Contains(query.Description.ToLower()));
             }
 
             return await products.ProjectTo<ProductDto>(_mapper.ConfigurationProvider)
@@ -63,9 +63,10 @@ namespace Api.Services
 
         }
 
-        public async Task<ProductDto> AddOrUpdatedAsync(ProductCommand productInsert, Guid? id = null)
+        public async Task<ProductDto> AddOrUpdateAsync(ProductCommand productInsert, Guid? id = null)
         {
 
+          
             Size size = await _sizeRepository.GetByNameAsync(productInsert.Size);
             if (size == null)
             {
@@ -83,7 +84,7 @@ namespace Api.Services
                 SizeId = size.Id,
                 ColorId = color.Id,
                 Description = productInsert.Description,
-                Price = productInsert.Price.Value
+                Price = productInsert.Price
             };
           
             var productResult = new Product();
